@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Курсы{% endblock %}
+
+{% block content %}
+<h1>Курсы</h1>
+
+<ul>
+    {% for course in courses %}
+        <li>
+            <strong>{{ course.title }}</strong><br>
+            {{ course.description }}
+        </li>
+    {% empty %}
+        <li>Курсов пока нет</li>
+    {% endfor %}
+</ul>
+{% endblock %}
